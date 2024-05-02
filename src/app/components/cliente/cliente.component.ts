@@ -32,7 +32,7 @@ export class ClienteComponent {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
- } 
+ }
 
  inserir(){
   if(this.clienteForm.valid){
@@ -42,7 +42,8 @@ export class ClienteComponent {
       id: this.generateRandomString(6)
     }
     this.clienteForm.reset()
-    this.clienteService.adicionar(clienteNovo)
+    this.clientes.push(clienteNovo)
+    this.clienteService.adicionar(clienteNovo).subscribe()
     alert('Cliente cadastrado com sucesso!')
 
   }
@@ -57,7 +58,8 @@ export class ClienteComponent {
  }
 
  remover(id:string):void{
-  this.clienteService.remover(id)
+  this.clientes = this.clientes.filter((c) => c.id !== id)
+  this.clienteService.remover(id).subscribe()
   alert('removido com sucesso!')
  }
 
