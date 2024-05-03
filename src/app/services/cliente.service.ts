@@ -38,13 +38,20 @@ export class ClienteService {
     return this.http.delete(`${this.clientesUrl}/${id}`)
   }
 
+  httpHeader = {
+    headers:{
+      "Content-Type":"application/json"
+    }
+  };
+
+  atualizar(cliente:Cliente){
+    return this.http.put(`${this.clientesUrl}/${cliente.id}`, cliente, this.httpHeader)
+
+
+  }
 
   adicionar(cliente:Cliente){
-    const httpHeader = {
-      headers: {
-        "Content-Type":"application/json"
-      }
-    }
-    return this.http.post(this.clientesUrl, cliente, httpHeader)
+
+    return this.http.post(this.clientesUrl, cliente, this.httpHeader)
   }
 }

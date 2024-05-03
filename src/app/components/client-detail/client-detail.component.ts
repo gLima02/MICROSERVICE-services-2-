@@ -26,7 +26,7 @@ export class ClientDetailComponent {
   getClientById(){
     this.id = this.route.snapshot.paramMap.get('id') ?? ''
 
-    this.clienteService.getById(this.id).subscribe((clienteResponse) => this.cliente = clienteResponse)
+    this.clienteService.getById(this.id).subscribe((clienteResponse) => (this.cliente = clienteResponse))
     this.clienteForm = this.formBuilder.group({
 
       nome: [this.cliente?.nome],
@@ -37,8 +37,15 @@ export class ClientDetailComponent {
   }
 
   update():void{
+    if(this.clienteForm.valid){
+      const clienteAlterado:Cliente = {
+        nome: this.clienteForm.value.nome,
+        telefone: this.clienteForm.value.telefone,
+        id: this.clienteForm.value.id
+      }
+      this.clienteService.atualizar(clienteAlterado).subscribe()
+      alert('Alterado com sucesso!')
 
   }
-
-
+  }
 }
