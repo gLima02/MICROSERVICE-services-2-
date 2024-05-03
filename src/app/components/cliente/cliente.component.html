@@ -19,7 +19,7 @@
 
 <table class="table table-dark table-striped-columns mt-3">
     <thead>
-      <tr>  
+      <tr>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Telefone</th>
@@ -32,10 +32,12 @@
                 <th scope="row">{{item.id}}</th>
                 <td>{{item.nome}}</td>
                 <td>{{item.telefone}}</td>
-                <td><input type="button" value="remover" class="btn btn-danger" (click)="remover(item.id)"/></td>
+                <td><input type="button" value="remover" class="btn btn-danger" (click)="remover(item.id)"/>
+                <a href="cliente/{{item.id}}" class="btn btn-warning">Editar</a>
+                </td>
             </tr>
         }
-      
+
     </tbody>
 </table>
 </div>

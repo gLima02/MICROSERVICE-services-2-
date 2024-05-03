@@ -20,6 +20,11 @@ export class ClienteService {
     //return this.clientes;
   }
 
+  getById(id:string){
+    return this.http.get(`${this.clientesUrl}/${id}`) as Observable<Cliente>
+
+  }
+
   remover(id:string){
     // const cliente = this.clientes.find(c => c.id == id);
 
@@ -29,9 +34,10 @@ export class ClienteService {
     // }
 
     // http://localhost3000/clientes/ (id)
-    
+
     return this.http.delete(`${this.clientesUrl}/${id}`)
   }
+
 
   adicionar(cliente:Cliente){
     const httpHeader = {
