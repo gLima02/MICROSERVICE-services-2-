@@ -1,0 +1,111 @@
+<div class="container-fluid p-5">
+    <h2>Lista de Fornecedores</h2>
+    <div style="text-align: end">
+        <h4>atividade - Checkpoint</h4>
+        <p>Guilherme Lima Oliveira - RM93401</p>
+        <p>Guilherme Miguel Dornelas - RM94599</p>
+    </div>
+    <table class="table table-secondary table-striped-columns mt-3">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of fornecedores; track $index){
+            <tr>
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.cnpj }}</td>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.endereco }}</td>
+                <td>{{ item.telefone }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+  
+    <div class="row" >
+
+        <div class="col " >
+            <h3>Editar Fornecedor</h3>
+            <div>
+                <div class="mx-2 mb-3" >
+                    <label for="editFornecedorId" class="visually">ID do Fornecedor</label>
+                    <input type="text" class="form-control" id="editFornecedorId" placeholder="ID do Fornecedor" [(ngModel)]="fornecedorIdEditar">
+                </div>
+                <!-- Campos de entrada para os novos dados do fornecedor -->
+                <form [formGroup]="fornecedorFormEditar" (ngSubmit)="editar()">
+                    <input type="hidden" FormControlName="id">
+                    <div class="mx-2 mb-3 pt-2 border-top">
+                        <label for="inputCnpjEditar" class="visually">CNPJ</label>
+                        <input type="text" class="form-control" id="inputCnpjEditar" placeholder="Nome" formControlName="cnpj">
+                    </div>
+                    <div class="mx-2 mb-3 pt-2 border-top">
+                        <label for="inputNomeEditar" class="visually">Nome</label>
+                        <input type="text" class="form-control" id="inputNomeEditar" placeholder="Nome" formControlName="nome">
+                    </div>
+                    <div class="mx-2 mb-3">
+                        <label for="inputEnderecoEditar" class="visually">Endereço</label>
+                        <input type="text" class="form-control" id="inputEnderecoEditar" placeholder="Endereço" formControlName="endereco">
+                    </div>
+                    <div class="mx-2 mb-3">
+                        <label for="inputTelefoneEditar" class="visually">Telefone</label>
+                        <input type="text" class="form-control" id="inputTelefoneEditar" placeholder="Telefone" formControlName="telefone">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mb-3">Editar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+        <div class="col" >
+            <h3>Inserir Fornecedor</h3>
+            <form [formGroup]="fornecedorForm" (ngSubmit)="inserir()">
+                <div class="mx-2 mb-3">
+                    <label for="inputCNPJ" class="visually">CNPJ</label>
+                    <input type="text" class="form-control" id="inputCNPJ" placeholder="CNPJ" formControlName="cnpj"/>
+                </div>
+                <div class="mx-2 mb-3">
+                    <label for="inputNome" class="visually">Nome</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="Nome" formControlName="nome"/>
+                </div>
+                <div class="mx-2 mb-3">
+                    <label for="inputEndereco" class="visually">Endereço</label>
+                    <input type="text" class="form-control" id="inputEndereco" placeholder="Endereço" formControlName="endereco"/>
+                </div>
+                <div class="mx-2 mb-3">
+                    <label for="inputTelefone" class="visually">Telefone</label>
+                    <input type="text" class="form-control" id="inputTelefone" placeholder="Telefone" formControlName="telefone"/>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+                </div>
+            </form>
+        </div>
+  
+        
+  
+
+
+        <div class="col">
+            <h3>Remover Fornecedor</h3>
+            <div>
+                <div class="mx-2 mb-3" >
+                    <label for="removeFornecedorId" class="visually">ID do Fornecedor</label>
+                    <input type="text" class="form-control" id="removeFornecedorId" placeholder="ID do Fornecedor" [(ngModel)]="fornecedorIdRemover">
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-danger mb-3" (click)="remover()">Remover</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

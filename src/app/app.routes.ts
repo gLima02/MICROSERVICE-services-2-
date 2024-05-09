@@ -6,6 +6,7 @@ import { ClienteComponent } from './components/cliente/cliente.component';
 import { TarefasComponent } from './components/tarefas/tarefas.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { IbgeComponent } from './components/ibge/ibge.component';
+import { FornecedorComponent } from './components/fornecedores/fornecedores.component';
 
 export const routes: Routes = [
 
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path: 'tarefa', component: TarefasComponent},
     {path: 'pokemon', component: PokemonComponent},
     {path: 'ibge', component: IbgeComponent},
+    {path: 'fornecedor', component: FornecedorComponent},
     {path: '**', component: HomeComponent}
 
 ];

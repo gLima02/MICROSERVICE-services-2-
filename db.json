@@ -10,5 +10,21 @@
       "nome": "Gabriel",
       "telefone": "111"
     }
+  ],
+  "fornecedores": [
+    {
+      "id": "IDTeste",
+      "cnpj": "teste6",
+      "nome": "teste6",
+      "telefone": "teste6",
+      "endereco": "teste6"
+    },
+    {
+      "cnpj": "teste3",
+      "nome": "teste3",
+      "endereco": "teste3",
+      "telefone": "teste3",
+      "id": "fwO048"
+    }
   ]
 }
